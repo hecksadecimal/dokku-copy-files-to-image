@@ -1,8 +1,8 @@
 # dokku-copy-files-to-image
 
-Copies files from the host's `/home/dokku/<APP>/DOKKU_FILES` directory to the `/app` directory of a dokku image before the image is released.
+Copies files and directories recursive from the host's `/home/dokku/<APP>/DOKKU_FILES` directory to the `/app` directory of a dokku image before the image is released.
 
-Only affects deploys where buildpacks are in use. Files are not available during the build step.
+Only affects deploys where buildpacks or dockerfile are in use. Files are not available during the build step.
 
 ## requirements
 
@@ -36,6 +36,5 @@ Once that is done, any deploy should automatically add the file to the `/app` di
 
 ### caveats
 
-- Does not copy directories or directory structures
 - Does not copy files prefixed by periods
 - Will not persist mode on copied files
